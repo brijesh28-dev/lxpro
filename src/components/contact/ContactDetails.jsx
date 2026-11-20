@@ -8,12 +8,13 @@ import {
   IconBrandWhatsapp,
   IconBrandInstagram,
   IconBrandFacebook,
-  IconBrandX,
-  IconBrandYoutube,
+  IconBrandThreads,
+  IconLink,
   IconChevronDown,
   IconArrowUpRight,
 } from "@tabler/icons-react";
 import { LUXURY_EASE } from "@/lib/animations";
+import { SOCIAL_LINKS } from "@/config/socialLinks";
 
 const FAQS = [
   {
@@ -176,16 +177,22 @@ export default function ContactDetails() {
       </div>
 
       {/* Social Links */}
-      <div className="flex items-center justify-between p-4 px-6 rounded-2xl bg-[#FFFFFF] border border-[#EAE3D7] shadow-xs">
-        <span className="text-xs uppercase tracking-widest text-[#7A6B60] font-medium">
-          Follow Our Journey
-        </span>
-        <div className="flex items-center gap-2.5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 px-6 rounded-2xl bg-[#FFFFFF] border border-[#EAE3D7] shadow-xs">
+        <div>
+          <span className="text-xs uppercase tracking-widest text-[#7A6B60] font-medium block">
+            Follow Our Journey
+          </span>
+          <span className="text-[11px] text-[#9A6233] font-serif italic">
+            @lxpro_25 &bull; Laxminarayan Fabrics
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
           {[
-            { Icon: IconBrandInstagram, label: "Instagram", href: "https://instagram.com" },
-            { Icon: IconBrandFacebook,  label: "Facebook",  href: "https://facebook.com" },
-            { Icon: IconBrandX,         label: "X",         href: "https://x.com" },
-            { Icon: IconBrandYoutube,   label: "YouTube",   href: "https://youtube.com" },
+            { Icon: IconBrandInstagram, label: "Instagram (@lxpro_25)", href: SOCIAL_LINKS.instagram.url },
+            { Icon: IconBrandFacebook,  label: "Facebook (LX Pro)",  href: SOCIAL_LINKS.facebook.url },
+            { Icon: IconBrandThreads,   label: "Threads (@lxpro_25)", href: SOCIAL_LINKS.threads.url },
+            { Icon: IconBrandWhatsapp,  label: "WhatsApp Concierge", href: SOCIAL_LINKS.whatsapp.url },
+            { Icon: IconLink,           label: "Official Linktree", href: SOCIAL_LINKS.linktree.url },
           ].map(({ Icon, label, href }) => (
             <a
               key={label}
@@ -193,7 +200,8 @@ export default function ContactDetails() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="size-9 rounded-full bg-[#F4EFE6] hover:bg-[#241A15] border border-[#EAE3D7] hover:border-[#241A15] flex items-center justify-center text-[#1F1714] hover:text-[#FAF7F2] transition-all duration-300"
+              title={label}
+              className="size-9 rounded-full bg-[#F4EFE6] hover:bg-[#241A15] border border-[#EAE3D7] hover:border-[#241A15] flex items-center justify-center text-[#1F1714] hover:text-[#FAF7F2] transition-all duration-300 hover:scale-105 active:scale-95"
             >
               <Icon className="w-4 h-4" />
             </a>

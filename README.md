@@ -73,3 +73,4 @@ npm run build
 ## 📄 License
 
 Proprietary © 1992–2026 **Laxminarayan Fabrics & LX PRO**. All rights reserved.
+

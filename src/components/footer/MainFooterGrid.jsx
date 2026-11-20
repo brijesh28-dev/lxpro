@@ -5,8 +5,8 @@ import {
   IconBrandWhatsapp, 
   IconBrandInstagram, 
   IconBrandFacebook, 
-  IconBrandX, 
-  IconBrandYoutube,
+  IconBrandThreads,
+  IconLink,
   IconBuildingStore,
   IconCrown,
   IconScissors,
@@ -16,6 +16,7 @@ import {
 } from "@tabler/icons-react";
 import logoImg from "@/assets/lxProLogo.png";
 import { LUXURY_EASE } from "@/lib/animations";
+import { SOCIAL_LINKS } from "@/config/socialLinks";
 
 export default function MainFooterGrid() {
   const collections = [
@@ -199,43 +200,58 @@ export default function MainFooterGrid() {
           </p>
           <div className="flex items-center gap-2.5 mb-6">
             <a
-              href="https://instagram.com"
+              href={SOCIAL_LINKS.instagram.url}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LX PRO on Instagram"
-              className="size-10 rounded-full bg-white/[0.06] hover:bg-[#9A6233] border border-white/10 hover:border-[#9A6233] flex items-center justify-center text-[#FAF7F2] hover:text-white transition-all duration-300 shadow-xs active:scale-95"
+              aria-label="LX PRO on Instagram (@lxpro_25)"
+              title="Instagram (@lxpro_25)"
+              className="size-10 rounded-full bg-white/[0.06] hover:bg-[#9A6233] border border-white/10 hover:border-[#9A6233] flex items-center justify-center text-[#FAF7F2] hover:text-white transition-all duration-300 shadow-xs hover:scale-105 active:scale-95"
             >
               <IconBrandInstagram className="w-4 h-4" />
             </a>
 
             <a
-              href="https://facebook.com"
+              href={SOCIAL_LINKS.facebook.url}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LX PRO on Facebook"
-              className="size-10 rounded-full bg-white/[0.06] hover:bg-[#9A6233] border border-white/10 hover:border-[#9A6233] flex items-center justify-center text-[#FAF7F2] hover:text-white transition-all duration-300 shadow-xs active:scale-95"
+              aria-label="LX PRO on Facebook (LX Pro)"
+              title="Facebook (LX Pro)"
+              className="size-10 rounded-full bg-white/[0.06] hover:bg-[#9A6233] border border-white/10 hover:border-[#9A6233] flex items-center justify-center text-[#FAF7F2] hover:text-white transition-all duration-300 shadow-xs hover:scale-105 active:scale-95"
             >
               <IconBrandFacebook className="w-4 h-4" />
             </a>
 
             <a
-              href="https://x.com"
+              href={SOCIAL_LINKS.threads.url}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LX PRO on X"
-              className="size-10 rounded-full bg-white/[0.06] hover:bg-[#9A6233] border border-white/10 hover:border-[#9A6233] flex items-center justify-center text-[#FAF7F2] hover:text-white transition-all duration-300 shadow-xs active:scale-95"
+              aria-label="LX PRO on Threads (@lxpro_25)"
+              title="Threads (@lxpro_25)"
+              className="size-10 rounded-full bg-white/[0.06] hover:bg-[#9A6233] border border-white/10 hover:border-[#9A6233] flex items-center justify-center text-[#FAF7F2] hover:text-white transition-all duration-300 shadow-xs hover:scale-105 active:scale-95"
             >
-              <IconBrandX className="w-4 h-4" />
+              <IconBrandThreads className="w-4 h-4" />
             </a>
 
             <a
-              href="https://youtube.com"
+              href={SOCIAL_LINKS.whatsapp.url}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LX PRO on YouTube"
-              className="size-10 rounded-full bg-white/[0.06] hover:bg-[#9A6233] border border-white/10 hover:border-[#9A6233] flex items-center justify-center text-[#FAF7F2] hover:text-white transition-all duration-300 shadow-xs active:scale-95"
+              aria-label="LX PRO WhatsApp Concierge"
+              title="WhatsApp Concierge"
+              className="size-10 rounded-full bg-white/[0.06] hover:bg-[#25D366] border border-white/10 hover:border-[#25D366] flex items-center justify-center text-[#FAF7F2] hover:text-white transition-all duration-300 shadow-xs hover:scale-105 active:scale-95"
             >
-              <IconBrandYoutube className="w-4 h-4" />
+              <IconBrandWhatsapp className="w-4 h-4" />
+            </a>
+
+            <a
+              href={SOCIAL_LINKS.linktree.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LX PRO Official Linktree (lxpro25)"
+              title="Linktree (@lxpro25)"
+              className="size-10 rounded-full bg-white/[0.06] hover:bg-[#C59B4D] border border-white/10 hover:border-[#C59B4D] flex items-center justify-center text-[#FAF7F2] hover:text-neutral-950 transition-all duration-300 shadow-xs hover:scale-105 active:scale-95"
+            >
+              <IconLink className="w-4 h-4" />
             </a>
           </div>
 
