@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/src/assets/lxProLogo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#FAF7F2" />
+    
+    <!-- Theme Script: Default to LIGHT THEME, only apply dark if saved theme is explicitly 'dark' -->
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('theme');
+          if (saved === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    
+    <!-- SEO Primary Meta Tags -->
+    <title>LX PRO • Surat's Premier Textile Atelier & Bespoke Menswear | Est. 1992</title>
+    <meta name="title" content="LX PRO • Surat's Premier Textile Atelier & Bespoke Menswear | Est. 1992" />
+    <meta name="description" content="LX PRO — Powered by Laxminarayan Fabrics since 1992. Surat's foremost destination for royal wedding kurtas, imperial safari suits, imported trousers, and pure Italian linens across 8 city flagships." />
+    <meta name="keywords" content="LX PRO, Laxminarayan Fabrics, luxury menswear Surat, bespoke tailoring Surat, wedding kurta, safari suit, Italian linen shirts, imported pants, Surat textile ateliers" />
+    <meta name="author" content="LX PRO • Laxminarayan Fabrics" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.lxpro.in/" />
+    <meta property="og:title" content="LX PRO • Surat's Premier Textile Atelier & Bespoke Menswear" />
+    <meta property="og:description" content="Powered by Laxminarayan Fabrics since 1992. 8 flagship ateliers across Surat offering bespoke tailoring and imported fabrics." />
+    <meta property="og:image" content="/src/assets/lxProLogo.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.lxpro.in/" />
+    <meta property="twitter:title" content="LX PRO • Surat's Premier Textile Atelier & Bespoke Menswear" />
+    <meta property="twitter:description" content="Powered by Laxminarayan Fabrics since 1992. 8 flagship ateliers across Surat offering bespoke tailoring and imported fabrics." />
+    <meta property="twitter:image" content="/src/assets/lxProLogo.png" />
+
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Preload Critical Above-the-Fold Hero Photography -->
+    <link rel="preload" as="image" href="/src/assets/hero/store.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="/src/assets/hero/kurta.jpg" fetchpriority="high" />
+
+    <!-- JSON-LD Structured Data: LocalBusiness & Organization -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ClothingStore",
+        "name": "LX PRO",
+        "alternateName": ["LX Pro", "Laxminarayan Fabrics"],
+        "url": "https://www.lxpro.in",
+        "logo": "https://www.lxpro.in/src/assets/lxProLogo.png",
+        "slogan": "The Timeless Luxury",
+        "foundingDate": "1992",
+        "description": "LX PRO — Powered by Laxminarayan Fabrics since 1992. We offer premium fabrics, expert bespoke tailoring, and modern aesthetics with traditional elegance across 8 branches in Surat.",
+        "telephone": "+91 76000 50236",
+        "email": "lxpro2025@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Krishna Park Society, 5&6, Varachha Main Rd, near D-mart, Sarthana Jakat Naka",
+          "addressLocality": "Surat",
+          "addressRegion": "Gujarat",
+          "postalCode": "395013",
+          "addressCountry": "IN"
+        },
+        "priceRange": "₹₹ - ₹₹₹₹",
+        "openingHours": "Mo-Su 10:00-21:00"
+      }
+    </script>
+  </head>
+  <body class="bg-[#FAF7F2] dark:bg-[#0E0A08] text-[#1F1714] dark:text-[#FAF7F2] antialiased overflow-x-hidden selection:bg-[#9A6233]/20 dark:selection:bg-[#C59B4D]/30 transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

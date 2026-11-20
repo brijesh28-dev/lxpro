@@ -1,0 +1,368 @@
+@import "tailwindcss";
+@import "./components/ThemeToggle/ThemeToggle.css";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   LIGHT THEME TOKENS (Classic Warm Alabaster & Cognac Leather)
+   ══════════════════════════════════════════════════════════════════ */
+:root {
+  color-scheme: light;
+  --background: #FAF7F2;
+  --foreground: #1F1714;
+
+  /* Resizable Navbar Glassmorphism tokens - Light Crystal Glass Effect */
+  --nav-bg: rgba(255, 255, 255, 0.68);
+  --nav-bg-top: rgba(255, 255, 255, 0.45);
+  --nav-border: rgba(120, 80, 45, 0.12);
+  --nav-border-top: rgba(120, 80, 45, 0.08);
+  --nav-shadow: 0 14px 34px -8px rgba(60, 40, 20, 0.07), 0 0 0 1px rgba(255, 255, 255, 0.85) inset, 0 1px 0 rgba(255, 255, 255, 0.95) inset;
+  --nav-shadow-top: 0 6px 20px -4px rgba(60, 40, 20, 0.03), 0 0 0 1px rgba(255, 255, 255, 0.75) inset;
+  --mobile-nav-bg: rgba(255, 255, 255, 0.75);
+  --mobile-nav-bg-top: rgba(255, 255, 255, 0.5);
+  --mobile-menu-bg: rgba(255, 255, 255, 0.92);
+  --mobile-menu-border: rgba(120, 80, 45, 0.14);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   FULL LUXURY DARK THEME ENGINE
+   Obsidian Nero Marquina Marble & Imperial 24K Bullion Gold Gradients
+   ══════════════════════════════════════════════════════════════════ */
+:root.dark,
+html.dark {
+  color-scheme: dark;
+  --background: #0A0705;
+  --foreground: #FAF7F2;
+
+  /* Obsidian Marble Base Foundations */
+  --marble-obsidian-deep: #0A0705;
+  --marble-obsidian-surface: #120D0A;
+  --marble-obsidian-card: #18120E;
+  --marble-obsidian-card-hover: #221812;
+
+  /* Imperial 24K Bullion Gold Palette */
+  --gold-bullion: #D4AF37;
+  --gold-champagne: #F3E5AB;
+  --gold-burnished: #ECC876;
+  --gold-antique: #AA771C;
+  --gold-border: rgba(212, 175, 55, 0.22);
+  --gold-border-hover: rgba(212, 175, 55, 0.55);
+  --gold-glow: 0 0 25px rgba(212, 175, 55, 0.25);
+
+  /* Gold Gradients */
+  --gold-grad-text: linear-gradient(135deg, #FFF4D0 0%, #ECC876 25%, #D4AF37 55%, #AA771C 85%, #E5C368 100%);
+  --gold-grad-button: linear-gradient(135deg, #ECC876 0%, #D4AF37 50%, #9E7422 100%);
+  --gold-grad-button-hover: linear-gradient(135deg, #FFF0CA 0%, #ECC876 50%, #B8863B 100%);
+
+  /* Resizable Navbar Glassmorphism tokens - Luxury Dark Obsidian & Warm Gold */
+  --nav-bg: rgba(18, 13, 10, 0.85);
+  --nav-bg-top: rgba(14, 10, 8, 0.72);
+  --nav-border: rgba(212, 175, 55, 0.26);
+  --nav-border-top: rgba(212, 175, 55, 0.16);
+  --nav-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.06) inset, 0 1px 0 rgba(212, 175, 55, 0.3) inset;
+  --nav-shadow-top: 0 6px 20px -4px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  --mobile-nav-bg: rgba(18, 13, 10, 0.88);
+  --mobile-nav-bg-top: rgba(14, 10, 8, 0.75);
+  --mobile-menu-bg: rgba(16, 11, 8, 0.97);
+  --mobile-menu-border: rgba(212, 175, 55, 0.3);
+}
+
+/* ── Global Canvas & Base Foundation ── */
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #FAF7F2;
+  color: #1F1714;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  max-width: 100vw;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+html.dark,
+html.dark body,
+html.dark #root {
+  background-color: #0A0705;
+  color: #FAF7F2;
+}
+
+/* ── Fixed Nero Marquina Dark Marble Background Foundation ── */
+html.dark body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-color: #0A0705;
+  background-image: 
+    radial-gradient(ellipse at 15% 10%, rgba(212, 175, 55, 0.07) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 85%, rgba(212, 175, 55, 0.045) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(26, 18, 14, 0.55) 0%, transparent 65%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='700' viewBox='0 0 700 700'%3E%3Cfilter id='marble-fissures'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.005 0.012' numOctaves='4' seed='9' result='noise'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0.83  0 1 0 0 0.69  0 0 1 0 0.22  0 0 0 0.045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23marble-fissures)' opacity='0.9'/%3E%3Cpath d='M-100 250 C 180 140, 290 420, 800 280' stroke='rgba(212,175,55,0.07)' stroke-width='45' fill='none' filter='blur(35px)'/%3E%3Cpath d='M-60 520 C 230 340, 400 620, 750 450' stroke='rgba(255,255,255,0.03)' stroke-width='30' fill='none' filter='blur(25px)'/%3E%3C/svg%3E");
+  transform: translateZ(0);
+  will-change: transform;
+  background-size: cover, cover, cover, 700px 700px;
+  opacity: 1;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SYSTEMIC COLOR TRACKING & DARK THEME MAPPINGS
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Heading Titles Metallic Imperial Gold Gradient ── */
+html.dark [class*="from-[#8C532B]"][class*="to-[#703C15]"],
+html.dark [class*="from-[#8C532B]"][class*="to-[#B8863B]"],
+html.dark [class*="from-[#8C532B]"][class*="to-[#D4AF37]"] {
+  background-image: linear-gradient(135deg, #FFF4D0 0%, #ECC876 25%, #D4AF37 55%, #AA771C 85%, #E5C368 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  filter: drop-shadow(0 2px 14px rgba(212, 175, 55, 0.35));
+}
+
+/* ── 2. Tracked Backgrounds \(\to\) Obsidian Marble & Charcoal ── */
+html.dark [class*="bg-[#FAF7F2]"],
+html.dark #home {
+  background-color: transparent !important;
+}
+
+html.dark [class*="bg-[#F4EFE6]"],
+html.dark [class*="bg-[#F7F2EB]"],
+html.dark [class*="bg-[#F2E9DE]"],
+html.dark [class*="bg-[#F3ECE1]"] {
+  background-color: rgba(18, 13, 10, 0.72) !important;
+}
+
+/* Cards & Surfaces \(\to\) Polished Nero Marquina Marble Slabs with Gold Bevels */
+html.dark [class*="bg-white"]:not(button):not(input):not(select):not(.pin-card-img-wrap),
+html.dark [class*="bg-[#FFFFFF]"]:not(button):not(input):not(select):not(.pin-card-img-wrap) {
+  background-color: rgba(24, 18, 14, 0.88) !important;
+  border-color: rgba(212, 175, 55, 0.22) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(212, 175, 55, 0.12) !important;
+}
+
+html.dark [class*="hover:bg-[#FAF7F2]"]:hover,
+html.dark [class*="hover:bg-[#F4EFE6]"]:hover {
+  background-color: rgba(34, 24, 18, 0.9) !important;
+}
+
+/* ── 3. Tracked Text Colors \(\to\) Luminous Silk & Cashmere ── */
+html.dark [class*="text-[#1F1714]"],
+html.dark [class*="text-[#241A15]"],
+html.dark [class*="text-[#140E0B]"],
+html.dark [class*="text-[#100C0A]"] {
+  color: #FAF7F2 !important;
+}
+
+html.dark [class*="text-[#6B5E55]"],
+html.dark [class*="text-[#7A6B60]"],
+html.dark [class*="text-[#5C5046]"],
+html.dark [class*="text-[#8C7D72]"],
+html.dark [class*="text-[#7A6E65]"],
+html.dark [class*="text-[#8A7E75]"],
+html.dark [class*="text-[#9A8F85]"],
+html.dark [class*="text-[#A89C91]"] {
+  color: #C8BAAC !important;
+}
+
+html.dark [class*="text-[#3D2C24]"] {
+  color: #E2D6C7 !important;
+}
+
+html.dark [class*="text-[#9A6233]"],
+html.dark [class*="text-[#8A5528]"],
+html.dark [class*="text-[#8C532B]"] {
+  color: #D4AF37 !important;
+}
+
+html.dark [class*="text-[#C59B4D]"],
+html.dark [class*="text-[#B8863B]"] {
+  color: #F3E5AB !important;
+}
+
+/* ── 4. Tracked Borders \(\to\) Gold Wire Hairlines ── */
+html.dark [class*="border-[#EAE3D7]"],
+html.dark [class*="border-[#D9CFC3]"],
+html.dark [class*="border-[#E2D6C7]"],
+html.dark [class*="border-[#DFD7CB]"],
+html.dark [class*="border-[#E4DBD0]"],
+html.dark [class*="border-[#E8DFD3]"],
+html.dark [class*="border-[#D5C7B8]"],
+html.dark [class*="border-[#D4C7BA]"] {
+  border-color: rgba(212, 175, 55, 0.22) !important;
+}
+
+html.dark [class*="hover:border-[#9A6233]"]:hover,
+html.dark [class*="hover:border-[#8C532B]"]:hover,
+html.dark [class*="hover:border-[#D5C7B8]"]:hover {
+  border-color: rgba(212, 175, 55, 0.6) !important;
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.2) !important;
+}
+
+/* ── 5. Primary Luxury CTAs \(\to\) Imperial Gold Buttons ── */
+html.dark a[class*="bg-[#241A15]"],
+html.dark button[class*="bg-[#241A15]"]:not(.theme-toggle-nav-btn) {
+  background: linear-gradient(135deg, #ECC876 0%, #D4AF37 50%, #9E7422 100%) !important;
+  color: #0A0705 !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35) !important;
+  border: 1px solid rgba(255, 240, 202, 0.4) !important;
+}
+
+html.dark a[class*="bg-[#241A15]"]:hover,
+html.dark button[class*="bg-[#241A15]"]:not(.theme-toggle-nav-btn):hover {
+  background: linear-gradient(135deg, #FFF4D0 0%, #ECC876 50%, #B8863B 100%) !important;
+  box-shadow: 0 6px 26px rgba(212, 175, 55, 0.55) !important;
+  transform: translateY(-1px);
+}
+
+/* Trailing arrow circle inside primary button */
+html.dark a[class*="bg-[#241A15]"] [class*="bg-[#FAF7F2]"],
+html.dark button[class*="bg-[#241A15]"] [class*="bg-[#FAF7F2]"] {
+  background-color: #0A0705 !important;
+  color: #D4AF37 !important;
+}
+
+/* Secondary Buttons \(\to\) Dark Obsidian Frosted Pill */
+html.dark a[class*="bg-[#FFFFFF]"],
+html.dark button[class*="bg-[#FFFFFF]"]:not(.theme-toggle-nav-btn),
+html.dark a[class*="bg-white"],
+html.dark button[class*="bg-white"]:not(.theme-toggle-nav-btn) {
+  background: rgba(26, 19, 15, 0.85) !important;
+  border-color: rgba(212, 175, 55, 0.3) !important;
+  color: #FAF7F2 !important;
+}
+
+html.dark a[class*="bg-[#FFFFFF]"]:hover,
+html.dark button[class*="bg-[#FFFFFF]"]:not(.theme-toggle-nav-btn):hover,
+html.dark a[class*="bg-white"]:hover,
+html.dark button[class*="bg-white"]:not(.theme-toggle-nav-btn):hover {
+  background: rgba(38, 28, 22, 0.95) !important;
+  border-color: rgba(212, 175, 55, 0.6) !important;
+  color: #FFF9F0 !important;
+}
+
+/* ── 6. Form Inputs \(\to\) Dark Stone with Gold Focus Rings ── */
+html.dark input[type="text"],
+html.dark input[type="email"],
+html.dark input[type="tel"],
+html.dark textarea,
+html.dark select {
+  background-color: rgba(22, 16, 12, 0.9) !important;
+  border-color: rgba(212, 175, 55, 0.3) !important;
+  color: #FAF7F2 !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #8E7E71 !important;
+}
+
+html.dark input:focus,
+html.dark textarea:focus,
+html.dark select:focus {
+  border-color: #D4AF37 !important;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.25) !important;
+}
+
+/* ── 7. Leaflet Map Nighttime Cartography ── */
+html.dark .leaflet-tile-pane {
+  filter: brightness(0.68) invert(1) contrast(3.2) hue-rotate(200deg) saturate(0.25) brightness(0.72) !important;
+}
+
+html.dark .custom-pin-card {
+  background: rgba(22, 16, 12, 0.95) !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  color: #FAF7F2 !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* ── 8. CardSwap 3D Engine in Dark Mode ── */
+html.dark .card-swap-slot {
+  --swap-tile: linear-gradient(145deg, #18120E 0%, #100C09 100%) !important;
+  --swap-tile-edge: rgba(212, 175, 55, 0.28) !important;
+  --swap-tile-highlight: rgba(255, 255, 255, 0.08) !important;
+  --swap-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.9), 0 10px 24px -12px rgba(0, 0, 0, 0.7) !important;
+  --swap-ink: #FAF7F2 !important;
+  --swap-badge: rgba(212, 175, 55, 0.15) !important;
+  --swap-shade: #0A0705 !important;
+}
+
+/* ── 9. Masonry Grid Cards in Dark Mode ── */
+html.dark .masonry__card {
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  background: #18120E;
+}
+html.dark .masonry__card:hover {
+  border-color: rgba(212, 175, 55, 0.55);
+}
+
+/* ── 10. Smooth Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #D9CFC3;
+  border-radius: 9999px;
+  border: 2px solid #FAF7F2;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B8A896;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #0A0705;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #2E211A;
+  border: 2px solid #0A0705;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+button, a, [role="button"] {
+  touch-action: manipulation;
+}
+
+/* Prevent unwanted text scaling on mobile landscape */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Remove default mobile tap highlight flash */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hide scrollbar while preserving smooth touch scrolling */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Safe area padding helper for notched phones */
+.pb-safe {
+  padding-bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
+}

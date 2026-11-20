@@ -1,0 +1,93 @@
+/* ── Luxury Theme Toggle Button (Navbar Embedded) ── */
+.theme-toggle-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(120, 80, 45, 0.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #1F1714;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(60, 40, 20, 0.06), 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.25s ease,
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  flex-shrink: 0;
+}
+
+/* Light mode hover & active */
+.theme-toggle-nav-btn:hover {
+  transform: scale(1.06);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(184, 134, 11, 0.35);
+  box-shadow: 0 4px 16px rgba(184, 134, 11, 0.15), 0 1px 0 rgba(255, 255, 255, 1) inset;
+}
+
+.theme-toggle-nav-btn:active {
+  transform: scale(0.94);
+}
+
+/* Dark mode styling */
+html.dark .theme-toggle-nav-btn,
+:root.dark .theme-toggle-nav-btn {
+  background: rgba(30, 22, 18, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  color: #FAF7F2;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
+}
+
+html.dark .theme-toggle-nav-btn:hover,
+:root.dark .theme-toggle-nav-btn:hover {
+  background: rgba(45, 34, 28, 0.9);
+  border-color: rgba(212, 175, 55, 0.55);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25), 0 1px 0 rgba(255, 255, 255, 0.15) inset;
+}
+
+/* Icon sizing & transitions */
+.theme-toggle-nav-btn svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.25s ease;
+}
+
+.theme-toggle-nav-btn:hover svg {
+  transform: rotate(18deg) scale(1.1);
+}
+
+/* Accessibility hidden span */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── View Transitions API (AnimatedThemeToggler Exact Effect) ── */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Scoped to AnimatedThemeToggler — sets data attribute during transition */
+html[data-magicui-theme-vt="active"]::view-transition-group(root) {
+  animation-duration: var(--magicui-theme-toggle-vt-duration);
+}
+
+html[data-magicui-theme-vt="active"]::view-transition-new(root) {
+  clip-path: var(--magicui-theme-vt-clip-from, none);
+}
+
